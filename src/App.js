@@ -16,21 +16,20 @@ class App extends Component {
     };
 
     handleSubmit = (contact) => {
-        const existing = this.state.contacts.find(c => c.name.toLowerCase() === contact.name.toLowerCase());
-        if (existing) {
+        if (this.state.contacts.some(c => c.name.toLowerCase() === contact.name.toLowerCase())) {
             alert(`${contact.name} is already in contacts`);
             return;
         }
-        this.setState({
-            ...this.state,
-            contacts: [...this.state.contacts, contact],
-        });
+        this.setState((state) => ({
+            contacts: [...state.contacts, contact],
+        }));
     };
+
     handleDelete = (id) => {
-        this.setState({
-            ...this.state,
-            contacts: this.state.contacts.filter(c => c.id !== id),
-        });
+        this.setState((state) => ({
+                contacts: state.contacts.filter(c => c.id !== id),
+            })
+        );
     }
 
     getFilteredContacts() {
@@ -42,7 +41,6 @@ class App extends Component {
 
     handleFilter(filter) {
         this.setState({
-            ...this.state,
             filter: filter,
         });
     }
