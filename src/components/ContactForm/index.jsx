@@ -30,6 +30,10 @@ class ContactForm extends Component {
             name: this.state.name,
             number: this.state.number,
         });
+        this.setState({
+            name: '',
+            number: '',
+        });
     }
 
     render() {
