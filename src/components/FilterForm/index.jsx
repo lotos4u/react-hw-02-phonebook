@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.module.scss'
 
 class FilterForm extends Component {
 
@@ -18,12 +19,12 @@ class FilterForm extends Component {
 
     render() {
         return (
-            <>
-                <label>
+            <div className={styles.formContainer}>
+                <label className={styles.label}>
                     Filter contacts by name
-                    <input type='text' value={this.state.filter} onChange={(e) => this.handleChangeFilter(e)}/>
+                    <input className={styles.input} type='text' value={this.state.filter} onChange={(e) => this.handleChangeFilter(e)}/>
                 </label>
-            </>
+            </div>
         );
     }
 }
