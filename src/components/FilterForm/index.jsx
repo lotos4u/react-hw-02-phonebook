@@ -10,7 +10,6 @@ class FilterForm extends Component {
 
     handleChangeFilter = (e) => {
         this.setState({
-            ...this.state,
             filter: e.target.value,
         }, () => {
             this.props.onFilter(this.state.filter);
@@ -20,9 +19,11 @@ class FilterForm extends Component {
     render() {
         return (
             <div className={styles.formContainer}>
-                <label className={styles.label}>
+                <label>
                     Filter contacts by name
-                    <input className={styles.input} type='text' value={this.state.filter} onChange={(e) => this.handleChangeFilter(e)}/>
+                    <input type='text'
+                           value={this.state.filter}
+                           onChange={(e) => this.handleChangeFilter(e)}/>
                 </label>
             </div>
         );
@@ -32,7 +33,5 @@ class FilterForm extends Component {
 FilterForm.propTypes = {
     onFilter: PropTypes.func.isRequired,
 }
-
-FilterForm.defaultProps = {}
 
 export default FilterForm;

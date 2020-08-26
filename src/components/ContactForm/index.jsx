@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 import styles from './styles.module.scss'
 
 class ContactForm extends Component {
@@ -12,14 +12,12 @@ class ContactForm extends Component {
 
     handleChangeName = (e) => {
         this.setState({
-            ...this.state,
             name: e.target.value,
         });
     }
 
     handleChangeNumber = (e) => {
         this.setState({
-            ...this.state,
             number: e.target.value,
         });
     }
@@ -40,16 +38,17 @@ class ContactForm extends Component {
     render() {
         return (
             <div className={styles.formContainer}>
-                <label className={styles.label}>
+                <label>
                     Name
-                    <input className={styles.input} type='text' value={this.state.name} onChange={(e) => this.handleChangeName(e)}/>
+                    <input type='text' value={this.state.name} onChange={(e) => this.handleChangeName(e)}/>
                 </label>
-                <label className={styles.label}>
+                <label>
                     Number
-                    <input className={styles.input} type='text' value={this.state.number} onChange={(e) => this.handleChangeNumber(e)}/>
+                    <input type='text' value={this.state.number} onChange={(e) => this.handleChangeNumber(e)}/>
                 </label>
-                <button className={styles.button} disabled={!this.state.name || !this.state.number}
-                        onClick={(e) => this.handleSubmit(e)}>Add contact</button>
+                <button disabled={!this.state.name || !this.state.number}
+                        onClick={(e) => this.handleSubmit(e)}>Add contact
+                </button>
             </div>
         );
     }
@@ -58,7 +57,5 @@ class ContactForm extends Component {
 ContactForm.propTypes = {
     onAdd: PropTypes.func.isRequired,
 }
-
-ContactForm.defaultProps = {}
 
 export default ContactForm;

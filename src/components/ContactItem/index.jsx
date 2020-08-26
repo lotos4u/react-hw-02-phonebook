@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 
 const ContactsItem = (props) => (
     <li className={styles.item}>
-        {props.name}: {props.number} <button className={styles.button} onClick={() => props.onDelete(props.id)}>Delete</button>
+        {props.name}: {props.number} <button onClick={() => props.onDelete(props.id)}>Delete</button>
     </li>
 )
 

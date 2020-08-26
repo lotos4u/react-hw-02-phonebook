@@ -4,14 +4,16 @@
   width: 400px;
   height: fit-content;
 
-  .label {
+  label {
     display: block;
     margin: 0 0 30px 0;
-    .input {
+
+    input {
       display: block;
     }
   }
-  .button {
+
+  button {
     display: block;
     padding: 5px 10px;
   }
